@@ -77,19 +77,21 @@
     </nav>
 
     <main class="py-4">
-        <div class="container-fluid">
+        <div class="container">
             <div class="row">
-                <div class="col-lg-4">
-                    <ul class="list-group">
-                        <li class="list-group-item">
-                            <a href="/home">Dashboard</a>
-                        </li>
-                        <li class="list-group-item">
-                            <a href="/post/create">Create New Article</a>
-                        </li>
+                @if(Auth::check())
+                    <div class="col-lg-4">
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                <a href="{{route('home')}}">Dashboard</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="{{route('post.create')}}">Create New Article</a>
+                            </li>
 
-                    </ul>
-                </div>
+                        </ul>
+                    </div>
+                @endif
                 <div class="col-lg-8">
                     @yield('content')
                 </div>
